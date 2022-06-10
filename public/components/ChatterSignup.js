@@ -21,6 +21,11 @@ export default class ChatterSignup extends Component {
     console.log('in handle submit')
     e.preventDefault();
     createChatter(this.state).then(res => {
+      this.setState({
+        fullName: '',
+        email: '',
+        interest: '',
+      })
     })
   }
 
