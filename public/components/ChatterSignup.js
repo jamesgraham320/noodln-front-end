@@ -18,6 +18,7 @@ export default class ChatterSignup extends Component {
   }
 
   handleSubmit = (e) => {
+    e.preventDefault();
     console.log('in submit', this.state)
     createChatter(this.state).then(res => {
       let date = new Date();
