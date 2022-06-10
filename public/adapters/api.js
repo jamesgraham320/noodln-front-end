@@ -1,4 +1,4 @@
-let api_base = process.env.NODE_ENV === 'development' ? "http://localhost:3001" : "https://noodln-api.herokuapp.com/" 
+let api_base = process.env.NODE_ENV === 'development' ? "http://localhost:3001" : "https://noodln-api.herokuapp.com" 
 
 const routes = {
   getChatters: api_base + "/chatters/",
@@ -6,12 +6,10 @@ const routes = {
 
 }
 export const getChatters = () => {
-  console.log("in get chatters route is: " + routes.getChatters)
   return fetch(routes.getChatters).then((res) => res.json());
 }
 
 export const createChatter = (chatter) => {
-  console.log("in the create chatters route: ")
   return fetch(routes.createChatter, {
     method: 'POST',
     headers: {

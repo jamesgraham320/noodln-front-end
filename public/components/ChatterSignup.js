@@ -18,13 +18,9 @@ export default class ChatterSignup extends Component {
   }
 
   handleSubmit = (e) => {
+    console.log('in handle submit')
     e.preventDefault();
-    console.log('in submit', this.state)
     createChatter(this.state).then(res => {
-      let date = new Date();
-      date.setTime(date.getTime()+(120*60*60*1000));
-      document.cookie = "account_made" + " = " + "true" + "; expires = " + date.toGMTString();
-      return;
     })
   }
 
