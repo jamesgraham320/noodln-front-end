@@ -1,4 +1,4 @@
-const api_base ="http://localhost:3001"
+let api_base = process.env.NODE_ENV === 'development' ? "http://localhost:3001" : "https://localhost:3001" 
 
 const routes = {
   getChatters: api_base + "/chatters/",
