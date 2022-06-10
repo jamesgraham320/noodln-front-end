@@ -1,4 +1,4 @@
-let api_base = process.env.NODE_ENV === 'development' ? "http://localhost:3001" : "https://noodln-api.herokuapp.com/chatters" 
+let api_base = process.env.NODE_ENV === 'development' ? "http://localhost:3001" : "https://noodln-api.herokuapp.com/" 
 
 const routes = {
   getChatters: api_base + "/chatters/",
