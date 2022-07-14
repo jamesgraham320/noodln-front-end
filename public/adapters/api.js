@@ -13,7 +13,6 @@ export const createChatter = (chatter) => {
   return fetch(routes.createChatter, {
     method: 'POST',
     headers: {
-      'Accept': 'application/json',
       'Content-Type': 'application/json'
     },
     body: JSON.stringify(chatter),
