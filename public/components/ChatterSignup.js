@@ -71,23 +71,23 @@ export default class ChatterSignup extends Component {
   }
 
   render() {
-    return <form onSubmit={this.handleSubmit}>
-      <FormControl isInvalid={this.state.emailInvalid}>
+    return <>
+      <FormControl pt='10px' isInvalid={this.state.emailInvalid}>
       <FormLabel>Email</FormLabel>
-      <Input type="text" name="email" value={this.state.email} onChange={this.handleChange}/>
+      <Input bg="white" type="text" name="email" value={this.state.email} onChange={this.handleChange}/>
       <FormErrorMessage>We need a valid email to get you Noodln!</FormErrorMessage>
     </FormControl>
-      <FormControl isInvalid={this.state.fullNameInvalid}>
+      <FormControl pt='10px' isInvalid={this.state.fullNameInvalid}>
       <FormLabel>Full Name</FormLabel>
-      <Input type="text" name="fullName" value={this.state.fullName} onChange={this.handleChange}/>
+      <Input bg="white" type="text" name="fullName" value={this.state.fullName} onChange={this.handleChange}/>
       <FormErrorMessage>We have to know who you are!</FormErrorMessage>
     </FormControl>
-      <FormControl isInvalid={this.state.interestInvalid} pb={'16px'}>
+      <FormControl pt='10px' isInvalid={this.state.interestInvalid} pb={'16px'}>
       <FormLabel>Interests</FormLabel>
-      <Textarea type="text" name="interest" value={this.state.interest} onChange={this.handleChange}/>
+      <Textarea bg="white" type="text" name="interest" value={this.state.interest} onChange={this.handleChange}/>
       <FormErrorMessage >So your lunch buddy has an intro!</FormErrorMessage>
     </FormControl>
-    <Button type='submit' >Submit</Button>
-    </form> 
+    <Button bg="#982022" color="#d2caca" type='submit' >Get Noodln!</Button>
+    </> 
   }
 }

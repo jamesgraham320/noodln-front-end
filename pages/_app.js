@@ -6,7 +6,7 @@ import '../styles/globals.css'
 function MyApp({ Component, pageProps }) {
   return <ChakraProvider>
     <CookiesProvider>
-    <Component {...pageProps} />
+      <Component {...pageProps} />
   </CookiesProvider>
   </ChakraProvider>
 }
