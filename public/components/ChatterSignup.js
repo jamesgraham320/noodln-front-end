@@ -87,7 +87,7 @@ export default class ChatterSignup extends Component {
       <Textarea bg="white" type="text" name="interest" value={this.state.interest} onChange={this.handleChange}/>
       <FormErrorMessage >So your lunch buddy has an intro!</FormErrorMessage>
     </FormControl>
-    <Button bg="#982022" color="#d2caca" type='submit' >Get Noodln!</Button>
+      <Button bg="#982022" color="#d2caca" type='submit' onClick={this.handleSubmit}>Get Noodln!</Button>
     </> 
   }
 }
