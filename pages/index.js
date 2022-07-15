@@ -20,6 +20,7 @@ export default function Home() {
   const [cookies] = useCookies();
   const [isLoading, setIsLoading] = useState(false);
   const [accountCreated, setAccountCreated] = useState(false);
+  //commenting here to trigger vercel rebuild
 
   return <>
     <Head>
