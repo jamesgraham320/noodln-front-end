@@ -83,7 +83,7 @@ export default class ChatterSignup extends Component {
       <FormErrorMessage>We have to know who you are!</FormErrorMessage>
     </FormControl>
       <FormControl pt='10px' isInvalid={this.state.interestInvalid} pb={'16px'}>
-      <FormLabel>Interests</FormLabel>
+      <FormLabel>Bio - About You!</FormLabel>
       <Textarea bg="white" type="text" name="interest" value={this.state.interest} onChange={this.handleChange}/>
       <FormErrorMessage >So your lunch buddy has an intro!</FormErrorMessage>
     </FormControl>
