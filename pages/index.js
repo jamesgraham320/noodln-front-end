@@ -23,6 +23,10 @@ export default function Home() {
   const [isLoading, setIsLoading] = useState(false);
   const [accountCreated, setAccountCreated] = useState(false);
 
+  const openInNewTab = (url) => {
+    window.open(url, "_blank", "noopener,noreferrer");
+  };
+
   return (
     <>
       <Head>
@@ -70,15 +74,15 @@ export default function Home() {
             <Text>
               If you can't wait to Noodl, join our Noodln all the time room!
             </Text>
-            <Button bg="#982022" color="#d2caca" type="submit">
-              <a
-                href="https://atslt.com/aqJvd3"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
+            <a
+              href={"https://atslt.com/aqJvd3"}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Button bg="#982022" color="#d2caca">
                 Noodl Now!
-              </a>
-            </Button>
+              </Button>
+            </a>
           </VStack>
         </Flex>
       ) : (
