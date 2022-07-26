@@ -72,10 +72,10 @@ export default function Home() {
           )}
           <VStack mt={5} spacing={4} align="center">
             <Text>
-              If you can't wait to Noodl, join our Noodln all the time room!
+              {`If you can't wait to Noodl, subscribe to our Noodln all the time room!`}
             </Text>
             <a
-              href={"https://atslt.com/aqJvd3"}
+              href="https://atslt.com/aqJvd3"
               target="_blank"
               rel="noopener noreferrer"
             >
