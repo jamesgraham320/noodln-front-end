@@ -1,6 +1,7 @@
 import { useState } from "react";
 import * as XLSX from "xlsx/xlsx.mjs";
 import { useFormik } from "formik";
+import { createOrg } from "../public/adapters/api.js";
 import {
   Text,
   Heading,
@@ -14,28 +15,35 @@ import {
   Box,
 } from "@chakra-ui/react";
 
-
 export default function Signup() {
   const orgForm = useFormik({
     initialValues: {
       orgName: "",
       orgContactEmail: "",
       orgContactName: "",
-      orgTime: "",
+      orgTime: 12,
       orgTimeZone: "",
+      chatterData: [],
     },
-    onSubmit: () => {
-      console.log(submitted);
+    onSubmit: (values) => {
+      let org = {
+        name: values.orgName,
+        contact_email: values.orgContactEmail,
+        contact_name: values.orgContactName,
+        noodln_time: values.orgTime,
+        timezone: values.orgTimeZone,
+      };
+      createOrg({
+        organization: org,
+        chatters: values.chatterData,
+      });
     },
   });
-  const [orgFile, setOrgFile] = useState();
   const handleFileChange = async (e) => {
-    setOrgFile(e.target.files[0]);
     const data = await e.target.files[0].arrayBuffer();
     let wb = XLSX.read(data);
-    console.log(wb.Sheets[wb.SheetNames[0]]);
-    console.log(XLSX.utils.sheet_to_json(wb.Sheets[wb.SheetNames[0]]));
-    
+    const sheetData = XLSX.utils.sheet_to_json(wb.Sheets[wb.SheetNames[0]]);
+    orgForm.setFieldValue("chatterData", sheetData);
   };
 
   return (
@@ -73,7 +81,7 @@ export default function Signup() {
             <FormLabel>Contact Email</FormLabel>
             <Input
               bg="white"
-              type="text"
+              type="email"
               name="orgContactEmail"
               value={orgForm.values.orgContactEmail}
               onChange={orgForm.handleChange}
