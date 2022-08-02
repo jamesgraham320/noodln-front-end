@@ -22,6 +22,7 @@ export default class ChatterSignup extends Component {
       fullNameInvalid: false,
       emailInvalid: false,
       interestInvalid: false,
+      socialLink: "",
     };
   }
 
@@ -41,6 +42,7 @@ export default class ChatterSignup extends Component {
       fullName: this.state.fullName,
       email: this.state.email,
       interest: this.state.interest,
+      socialLink: this.state.socialLink,
     };
     createChatter(newChatter).then((res) => {
       this.props.setIsLoading(false);
@@ -106,7 +108,6 @@ export default class ChatterSignup extends Component {
         <FormControl
           pt="10px"
           isInvalid={this.state.interestInvalid}
-          pb={"16px"}
         >
           <FormLabel>Bio - About You!</FormLabel>
           <Textarea
@@ -114,6 +115,20 @@ export default class ChatterSignup extends Component {
             type="text"
             name="interest"
             value={this.state.interest}
+            onChange={this.handleChange}
+          />
+          <FormErrorMessage>So your lunch buddy has an intro!</FormErrorMessage>
+        </FormControl>
+        <FormControl
+          pt="10px"
+          pb={"16px"}
+        >
+          <FormLabel>Social Link</FormLabel>
+          <Input
+            bg="white"
+            type="text"
+            name="socialLink"
+            value={this.state.socialLink}
             onChange={this.handleChange}
           />
           <FormErrorMessage>So your lunch buddy has an intro!</FormErrorMessage>

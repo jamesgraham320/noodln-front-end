@@ -1,7 +1,6 @@
 import { useState } from "react";
-import * as XLSX from "xlsx/xlsx.mjs";
 import { useFormik } from "formik";
-import { createOrg } from "../public/adapters/api.js";
+import { createOrg } from "../../adapters/api.js";
 import {
   Text,
   Heading,
@@ -39,12 +38,6 @@ export default function Signup() {
       });
     },
   });
-  const handleFileChange = async (e) => {
-    const data = await e.target.files[0].arrayBuffer();
-    let wb = XLSX.read(data);
-    const sheetData = XLSX.utils.sheet_to_json(wb.Sheets[wb.SheetNames[0]]);
-    orgForm.setFieldValue("chatterData", sheetData);
-  };
 
   return (
     <Flex
@@ -98,18 +91,6 @@ export default function Signup() {
               onChange={orgForm.handleChange}
             />
             <FormErrorMessage>We need a name for your org!</FormErrorMessage>
-          </FormControl>
-          <FormControl>
-            <FormLabel>CSV File of names and emails</FormLabel>
-            <Input
-              bg="white"
-              type="file"
-              name="orgContactName"
-              accept={
-                ".csv, application/vnd.ms-excel, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, .numbers"
-              }
-              onChange={handleFileChange}
-            />
           </FormControl>
           <Button bg="#982022" color="#d2caca" type="submit">
             Get Noodln!

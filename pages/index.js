@@ -1,7 +1,7 @@
 import styles from "../styles/Home.module.css";
-import ChatterSignup from "../public/components/ChatterSignup";
+import ChatterSignup from "/components/ChatterSignup";
 import Head from "next/head";
-import { getChatters } from "../public/adapters/api.js";
+import { getChatters } from "../adapters/api.js";
 import {
   Text,
   Container,
