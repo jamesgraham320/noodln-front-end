@@ -3,6 +3,7 @@ import { useFormik } from "formik";
 import { createOrg } from "../../adapters/api.js";
 import {
   Text,
+  Center,
   Spinner,
   Container,
   Image,
@@ -14,7 +15,6 @@ import {
   FormErrorMessage,
   Button,
   VStack,
-  Box,
 } from "@chakra-ui/react";
 
 export default function Signup() {
@@ -86,8 +86,8 @@ export default function Signup() {
         />
         <Heading pb={15}>Your org is signed up!</Heading>
         <Text pb={15} textAlign="center">
-          Just copy this link below and send it to your org so they can sign up
-          and start Noodln together! Don't forget to fill it out yourself!
+          ${`Just copy this link below and send it to your org so they can sign up
+          and start Noodln together! Don't forget to fill it out yourself!`}
         </Text>
         <Button onClick={copyText} bg="#982022" color="#d2caca">
           {isCopied ? "Copied!" : "Get Link"}
