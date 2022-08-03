@@ -18,6 +18,11 @@ import { useCookies } from "react-cookie";
 import { useState } from "react";
 import logo from "../public/logos/Noodln-no-background.png";
 
+const generalOrgId =
+  process.env.NODE_ENV === "development"
+    ? "552e6d44-6ff4-43ba-942d-039212d5ecde"
+    : "e38058c0-0baa-4966-a2cf-c98665677fb6";
+
 export default function Home() {
   const [cookies] = useCookies();
   const [isLoading, setIsLoading] = useState(false);
@@ -35,7 +40,6 @@ export default function Home() {
       {!accountCreated ? (
         <Flex
           bgColor="#fbf2ea"
-          mt={50}
           mb={100}
           ml="auto"
           mr="auto"
@@ -45,7 +49,6 @@ export default function Home() {
           direction="column"
         >
           <Image
-            mb={10}
             height={150}
             width="auto"
             src="/logos/Noodln-no-background.png"
@@ -55,15 +58,16 @@ export default function Home() {
           {!isLoading ? (
             <>
               <br />
-              <p as="h2">
+              <Text mb={5}>
                 Start Noodln with someone new at noon every day! Sign up now to
                 meet your daily lunch companion. Grab your sandwich and hit it
                 off!
-              </p>
+              </Text>
               <Container w="70%" minWidth="300px">
                 <ChatterSignup
                   setAccountCreated={setAccountCreated}
                   setIsLoading={setIsLoading}
+                  orgId={generalOrgId}
                 />
               </Container>
             </>

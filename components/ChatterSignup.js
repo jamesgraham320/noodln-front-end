@@ -4,6 +4,7 @@ import {
   Spinner,
   Input,
   FormErrorMessage,
+  VStack,
   Button,
   FormControl,
   FormLabel,
@@ -44,7 +45,7 @@ export default class ChatterSignup extends Component {
       interest: this.state.interest,
       socialLink: this.state.socialLink,
     };
-    createChatter(newChatter).then((res) => {
+    createChatter(newChatter, this.props.orgId).then((res) => {
       this.props.setIsLoading(false);
       this.props.setAccountCreated(true);
       this.setState({
@@ -80,68 +81,68 @@ export default class ChatterSignup extends Component {
 
   render() {
     return (
-      <>
-        <FormControl pt="10px" isInvalid={this.state.emailInvalid}>
-          <FormLabel>Email</FormLabel>
-          <Input
-            bg="white"
-            type="text"
-            name="email"
-            value={this.state.email}
-            onChange={this.handleChange}
-          />
-          <FormErrorMessage>
-            We need a valid email to get you Noodln!
-          </FormErrorMessage>
-        </FormControl>
-        <FormControl pt="10px" isInvalid={this.state.fullNameInvalid}>
-          <FormLabel>Full Name</FormLabel>
-          <Input
-            bg="white"
-            type="text"
-            name="fullName"
-            value={this.state.fullName}
-            onChange={this.handleChange}
-          />
-          <FormErrorMessage>We have to know who you are!</FormErrorMessage>
-        </FormControl>
-        <FormControl
-          pt="10px"
-          isInvalid={this.state.interestInvalid}
-        >
-          <FormLabel>Bio - About You!</FormLabel>
-          <Textarea
-            bg="white"
-            type="text"
-            name="interest"
-            value={this.state.interest}
-            onChange={this.handleChange}
-          />
-          <FormErrorMessage>So your lunch buddy has an intro!</FormErrorMessage>
-        </FormControl>
-        <FormControl
-          pt="10px"
-          pb={"16px"}
-        >
-          <FormLabel>Social Link</FormLabel>
-          <Input
-            bg="white"
-            type="text"
-            name="socialLink"
-            value={this.state.socialLink}
-            onChange={this.handleChange}
-          />
-          <FormErrorMessage>So your lunch buddy has an intro!</FormErrorMessage>
-        </FormControl>
-        <Button
-          bg="#982022"
-          color="#d2caca"
-          type="submit"
-          onClick={this.handleSubmit}
-        >
-          Get Noodln!
-        </Button>
-      </>
+      <form onSubmit={this.handleSubmit}>
+        <VStack spacing={4} align="flex-start">
+          <FormControl isRequired={true} isInvalid={this.state.emailInvalid}>
+            <FormLabel>Email</FormLabel>
+            <Input
+              bg="white"
+              type="text"
+              name="email"
+              value={this.state.email}
+              onChange={this.handleChange}
+            />
+            <FormErrorMessage>
+              We need a valid email to get you Noodln!
+            </FormErrorMessage>
+          </FormControl>
+          <FormControl isRequired={true} isInvalid={this.state.fullNameInvalid}>
+            <FormLabel>Full Name</FormLabel>
+            <Input
+              bg="white"
+              type="text"
+              name="fullName"
+              value={this.state.fullName}
+              onChange={this.handleChange}
+            />
+            <FormErrorMessage>We have to know who you are!</FormErrorMessage>
+          </FormControl>
+          <FormControl isRequired={true} isInvalid={this.state.interestInvalid}>
+            <FormLabel>Bio - About You!</FormLabel>
+            <Textarea
+              bg="white"
+              type="text"
+              name="interest"
+              value={this.state.interest}
+              onChange={this.handleChange}
+            />
+            <FormErrorMessage>
+              So your lunch buddy has an intro!
+            </FormErrorMessage>
+          </FormControl>
+          <FormControl>
+            <FormLabel>Social Link</FormLabel>
+            <Input
+              bg="white"
+              type="text"
+              name="socialLink"
+              value={this.state.socialLink}
+              onChange={this.handleChange}
+            />
+            <FormErrorMessage>
+              So your lunch buddy has an intro!
+            </FormErrorMessage>
+          </FormControl>
+          <Button
+            bg="#982022"
+            color="#d2caca"
+            type="submit"
+            onClick={this.handleSubmit}
+          >
+            Get Noodln!
+          </Button>
+        </VStack>
+      </form>
     );
   }
 }
