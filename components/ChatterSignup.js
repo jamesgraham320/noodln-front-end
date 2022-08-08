@@ -41,7 +41,7 @@ export default class ChatterSignup extends Component {
     this.props.setIsLoading(true);
     const newChatter = {
       fullName: this.state.fullName,
-      email: this.state.email,
+      email: this.state.email.toLowerCase(),
       interest: this.state.interest,
       socialLink: this.state.socialLink,
     };
